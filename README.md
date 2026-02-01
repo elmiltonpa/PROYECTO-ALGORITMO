@@ -6,7 +6,7 @@ El objetivo principal de este desarrollo fue resolver problemas complejos de ing
 
 ---
 
-## 🎯 Propósito del Proyecto
+## Propósito del Proyecto
 
 El sistema es una plataforma de **Gestión de Infracciones de Tránsito y Control de Conductores**. Su función principal es automatizar el seguimiento de la conducta vial mediante un sistema de **Scoring**.
 
@@ -18,7 +18,7 @@ El sistema es una plataforma de **Gestión de Infracciones de Tránsito y Contro
 
 ---
 
-## 🚀 Desafíos Técnicos y Soluciones Implementadas
+## Desafíos Técnicos y Soluciones Implementadas
 
 ### 1. Arquitectura Híbrida: Disco + RAM (Indexación)
 Uno de los mayores retos fue garantizar búsquedas rápidas sin cargar todos los datos en memoria.
@@ -45,7 +45,7 @@ El sistema selecciona la estructura de datos adecuada según la necesidad del al
 
 ---
 
-## 🛠 Habilidades de Ingeniería Demostradas
+## Habilidades de Ingeniería Demostradas
 
 Más allá del lenguaje utilizado, este proyecto demuestra dominio sobre los fundamentos de la computación:
 
@@ -57,7 +57,7 @@ Más allá del lenguaje utilizado, este proyecto demuestra dominio sobre los fun
 
 ---
 
-## 💻 Ejecución del Proyecto
+## Ejecución del Proyecto
 
 El proyecto está escrito en Pascal estándar, priorizando la portabilidad y el rendimiento nativo.
 
@@ -69,7 +69,3 @@ El proyecto está escrito en Pascal estándar, priorizando la portabilidad y el 
 fpc proyecto.pas
 ./proyecto.exe
 ```
-
----
-
-*Este proyecto fue desarrollado como una prueba de concepto para demostrar la capacidad de construir sistemas complejos de gestión de datos entendiendo las bases fundamentales de la programación estructurada y el manejo de recursos.*
