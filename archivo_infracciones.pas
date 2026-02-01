@@ -69,15 +69,15 @@ var
 
 begin
     clrscr;
-    x :=5; 
+    x :=5;
     y := 7;
     gotoxy(x, 5);
     textcolor(LightRed);
-    write('                    TIPOS DE INFRACCIONES                    ');
+    write('                      TIPOS DE INFRACCIONES                           ');
     textcolor(white);
-    write('|');
+    write(' | ');
     textcolor(LightRed);
-    writeln(' PUNTOS ');
+    writeln('PUNTOS');
     textcolor(white);
     gotoxy(x, 6);
     writeln('-------------------------------------------------------------------------------');
@@ -87,7 +87,7 @@ begin
         write(i + 1:3, '. ', Copy(vector_infracciones[i].tipo_infraccion + StringOfChar(' ', 65), 1, 65), ' | ', vector_infracciones[i].puntos_descontar:6);
         y := y + 1;
         gotoxy(x, y);
-        writeln('-------------------------------------------------------------------------------'); 
+        writeln('-------------------------------------------------------------------------------');
         y := y + 1;
     end;
     gotoxy(5, y + 2);
@@ -215,7 +215,7 @@ begin
         begin
             pos := preorden(arbol_dni, dni);
             if pos <> nil then
-                begin   
+                begin
                     abrir_archivo_conductores(archivo_conductores);
                     seek(archivo_conductores,pos^.info.posicion);
                     read(archivo_conductores,x_conductor);
@@ -224,7 +224,7 @@ begin
                         begin
                             if not (arbol_lleno()) then
                                 begin
-                                    x_infraccion.dni:= dni; 
+                                    x_infraccion.dni:= dni;
                                     opcion:= 'v';
                                     infraccion:= '1';
                                     while (opcion = 'v') and (infraccion <> '0') do
@@ -235,7 +235,7 @@ begin
                                                     fecha_hoy(x_infraccion.fecha_infraccion);
                                                     x_infraccion.tipo_infraccion:= vector_infracciones[StrToInt(infraccion)-1].tipo_infraccion;
                                                     x_infraccion.puntos_descontar:= vector_infracciones[StrToInt(infraccion)-1].puntos_descontar;
-                                                
+
                                                     clrscr;
                                                     gotoxy(5,5);
                                                     writeln('Va a cargar la siguiente infraccion');
@@ -252,7 +252,7 @@ begin
                                                     confirmacion_snv(opcion,x,y);
                                                     if (lowercase(opcion) = 's') then
                                                         begin
-                                                            descontar_puntos(archivo_conductores,pos,x_infraccion);                      
+                                                            descontar_puntos(archivo_conductores,pos,x_infraccion);
                                                             abrir_archivo_infracciones(archivo_infracciones);
                                                             if filesize(archivo_infracciones) = 0 then
                                                                 begin
@@ -334,7 +334,7 @@ var
     i,x,y:integer;
     pos:t_punt;
     x_infraccion:t_dato_infraccion;
-    
+
 begin
     x:=5;
     y:=6;
