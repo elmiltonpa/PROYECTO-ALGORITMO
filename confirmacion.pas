@@ -234,9 +234,7 @@ begin
                     clreol;
                     readln(anio);
                     confirmacion_anio_conductor(anio,x,y);
-                end
-            else
-
+                end;
         end;
 end;
 
@@ -261,10 +259,10 @@ var
 
 begin
     if lowercase(fecha.anio) <> 'n' then
-        completar_fecha(fecha);
-        confirmacion_anio_conductor(fecha.anio,x,y);
-       
         begin
+            completar_fecha(fecha);
+            confirmacion_anio_conductor(fecha.anio,x,y);
+        
             if not (fecha_valida(fecha)) and (fecha.anio <> 'n') then
                 begin
                     clrscr;
@@ -309,9 +307,9 @@ var
 
 begin
     if lowercase(fecha.anio) <> 'n' then
-        completar_fecha(fecha);
-        confirmacion_anio_conductor(fecha.anio,x,y);
         begin
+            completar_fecha(fecha);
+            confirmacion_anio_conductor(fecha.anio,x,y);
             if not (fecha_valida(fecha)) and (fecha.anio <> 'n') then
                 begin
                     gotoxy(5,y);
@@ -354,9 +352,10 @@ var
 
 begin
     if (lowercase(fecha.anio) <> 'n') then
-        completar_fecha(fecha);
-        confirmacion_anio_infraccion(fecha.anio,x,y);
         begin
+            completar_fecha(fecha);
+            confirmacion_anio_infraccion(fecha.anio,x,y);
+        
             if not fecha_valida(fecha) and (lowercase(fecha.anio) <> 'n') then
                 begin
                     gotoxy(x,y);
