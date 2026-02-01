@@ -269,7 +269,7 @@ begin
                 begin
                     clrscr;
                     y:=5;
-                    x:=40;
+                    x:=5;
                     gotoxy(x,y);
                     writeln('Fecha invalida, presione "s" para volver a intentarlo o "n" para salir');
                     gotoxy(x,y + 1);
@@ -314,9 +314,9 @@ begin
         begin
             if not (fecha_valida(fecha)) and (fecha.anio <> 'n') then
                 begin
-                    gotoxy(50,y);
+                    gotoxy(5,y);
                     writeln('Fecha invalida, presione "s" para volver a intentarlo o "n" para salir');
-                    gotoxy(50,y + 1);
+                    gotoxy(5,y + 1);
                     clreol;
                     readln(opcion);
                     y:=y+1;
@@ -371,7 +371,7 @@ begin
                         begin   
                             clrscr;
                             y:=5;
-                            x:=55;
+                            x:=5;
                             clrscr;
                             gotoxy(x,y);
                             writeln('Dia: ');

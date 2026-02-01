@@ -33,21 +33,21 @@ begin
     textcolor(white);
     repeat
         clrscr;
-        gotoxy(60,5);
+        gotoxy(5,5);
         writeln('1. ABMC conductor');
-        gotoxy(60,6);
+        gotoxy(5,6);
         writeln('2. AC infraccion');
-        gotoxy(60,7);
+        gotoxy(5,7);
         writeln('3. Estadisticas');
-        gotoxy(60,8);
+        gotoxy(5,8);
         writeln('4. Listados');
-        gotoxy(60,9);
+        gotoxy(5,9);
         writeln('0. Salir');
-        gotoxy(60,11);
+        gotoxy(5,11);
         writeln('Seleccione opcion: ');
-        gotoxy(79,11);
+        gotoxy(24,11);
         readln(opcion);
-        confirmacion_5_opciones(opcion,40,13);
+        confirmacion_5_opciones(opcion,5,13);
         case opcion of
             '1': alta_conductor(arch_conductores,arbol_dni,arbol_apynom);
             '2': AMC_infraccion(arch_infracciones,arch_conductores,arbol_dni,vector_infracciones);

@@ -26,11 +26,11 @@ begin
     if x_conductor.scoring <= 0 then
         begin
             clrscr;
-            gotoxy(50,5);
+            gotoxy(5,5);
             writeln('El conductor ha sido deshabilitado por falta de puntos');
-            gotoxy(58,7);
+            gotoxy(5,7);
             writeln('Presione enter para continuar');
-            gotoxy(58,8);
+            gotoxy(5,8);
             readkey;
             x_conductor.habilitado:= false;
             x_conductor.scoring:= 0;
@@ -69,37 +69,37 @@ var
 
 begin
     clrscr;
-    x :=20; 
+    x :=1; 
     y := 7;
     gotoxy(x, 5);
     textcolor(LightRed);
-    write('                            TIPOS DE INFRACCIONES                           ');
+    write('                    TIPOS DE INFRACCIONES                    ');
     textcolor(white);
     write('|');
     textcolor(LightRed);
-    writeln('    PUNTOS A DESCONTAR  ');
+    writeln(' PUNTOS ');
     textcolor(white);
     gotoxy(x, 6);
-    writeln('  --------------------------------------------------------------------------------------------------');
+    writeln('-------------------------------------------------------------------------------');
     for i := 0 to 11 do
     begin
         gotoxy(x, y);
-        write(i + 1:3, '. ', Copy(vector_infracciones[i].tipo_infraccion + StringOfChar(' ', 70), 0, 70), ' | ', vector_infracciones[i].puntos_descontar:10);
+        write(i + 1:3, '. ', Copy(vector_infracciones[i].tipo_infraccion + StringOfChar(' ', 65), 1, 65), ' | ', vector_infracciones[i].puntos_descontar:6);
         y := y + 1;
         gotoxy(x, y);
-        writeln('  --------------------------------------------------------------------------------------------------'); 
+        writeln('-------------------------------------------------------------------------------'); 
         y := y + 1;
     end;
-    gotoxy(60, y + 2);
+    gotoxy(1, y + 2);
     textcolor(LightRed);
     writeln('INGRESE "0" PARA SALIR');
     textcolor(white);
-    gotoxy(60, y + 4);
+    gotoxy(1, y + 4);
     writeln('Seleccione opcion: ');
-    gotoxy(80, y + 4);
+    gotoxy(20, y + 4);
     readln(opcion);
     y:=y+5;
-    x:=50;
+    x:=5;
     confirmacion_infraccion(opcion,x,y);
 end;
 
@@ -111,38 +111,38 @@ var
 
 begin
     clrscr;
-    x:=50;
+    x:=5;
     y:=7;
-    gotoxy(50,5);
+    gotoxy(5,5);
     writeln('Ingrese la fecha de la infraccion: ');
-    gotoxy(50,6);
+    gotoxy(5,6);
     writeln('Ingrese el dia: ');
-    gotoxy(65,6);
+    gotoxy(21,6);
     readln(x_infraccion.fecha_infraccion.dia);
     confirmacion_dias(x_infraccion.fecha_infraccion.dia,x,y);
     y:=y+1;
-    gotoxy(50,y);
+    gotoxy(5,y);
     writeln('Ingrese el mes: ');
-    gotoxy(65,y);
+    gotoxy(21,y);
     readln(x_infraccion.fecha_infraccion.mes);
     y:=y+1;
     confirmacion_mes(x_infraccion.fecha_infraccion.mes,x,y);
     y:=y+1;
-    gotoxy(50,y);
+    gotoxy(5,y);
     writeln('Ingrese el año: ');
-    gotoxy(65,y);
+    gotoxy(21,y);
     readln(x_infraccion.fecha_infraccion.anio);
     y:=y+1;
     confirmacion_fecha_infraccion(x_infraccion.fecha_infraccion,x,y);
     if(lowercase(x_infraccion.fecha_infraccion.anio) <> 'n') then
         begin
-            gotoxy(50,y+1);
+            gotoxy(5,y+1);
             writeln('Ingrese el tipo de infraccion');
-            gotoxy(50,y+2);
+            gotoxy(5,y+2);
             readln(x_infraccion.tipo_infraccion);
-            gotoxy(50,y+3);
+            gotoxy(5,y+3);
             writeln('Ingrese los puntos a descontar: ');
-            gotoxy(50,y+4);
+            gotoxy(5,y+4);
             readln(aux);
             y:=y+4;
             confirmacion_puntos2(x_infraccion.puntos_descontar,aux,x,y);
@@ -202,12 +202,12 @@ var
 
 begin
     clrscr;
-    x:=60;
+    x:=5;
     y:=6;
     clrscr;
-    gotoxy(60,5);
+    gotoxy(5,5);
     writeln('Ingrese el DNI del conductor o presione "n" para volver');
-    gotoxy(60,6);
+    gotoxy(5,6);
     readln(dni);
     y:=6;
     confirmacion_dni(dni,x,y);
@@ -237,18 +237,18 @@ begin
                                                     x_infraccion.puntos_descontar:= vector_infracciones[StrToInt(infraccion)-1].puntos_descontar;
                                                 
                                                     clrscr;
-                                                    gotoxy(60,5);
+                                                    gotoxy(5,5);
                                                     writeln('Va a cargar la siguiente infraccion');
-                                                    gotoxy(60,6);
-                                                    x:=50;
+                                                    gotoxy(5,6);
+                                                    x:=5;
                                                     y:=7;
                                                     mostrar_infraccion(x_infraccion,x,y);
-                                                    gotoxy(45, y+1);
+                                                    gotoxy(5, y+1);
                                                     writeln('¿Desea confirmar la carga de la infraccion? s/n o "v" para seleccionar otra infraccion');
-                                                    gotoxy(45, y+2);
+                                                    gotoxy(5, y+2);
                                                     readln(opcion);
                                                     y:=y+2;
-                                                    x:=40;
+                                                    x:=5;
                                                     confirmacion_snv(opcion,x,y);
                                                     if (lowercase(opcion) = 's') then
                                                         begin
@@ -267,11 +267,11 @@ begin
                                                                     write(archivo_infracciones, x_infraccion);
                                                                 end;
                                                             clrscr;
-                                                            gotoxy(60,5);
+                                                            gotoxy(5,5);
                                                             writeln('Infraccion cargada con exito');
-                                                            gotoxy(60,7);
+                                                            gotoxy(5,7);
                                                             writeln('Presione enter para continuar');
-                                                            gotoxy(60,8);
+                                                            gotoxy(5,8);
                                                             readkey;
                                                             close(archivo_infracciones);
                                                         end
@@ -280,11 +280,11 @@ begin
                                                             if (lowercase(opcion) = 'n') then
                                                                 begin
                                                                     clrscr;
-                                                                    gotoxy(60,5);
+                                                                    gotoxy(5,5);
                                                                     writeln('Infraccion no cargada');
-                                                                    gotoxy(60,7);
+                                                                    gotoxy(5,7);
                                                                     writeln('Presione enter para continuar');
-                                                                    gotoxy(60,8);
+                                                                    gotoxy(5,8);
                                                                     readkey;
                                                                 end;
                                                         end;
@@ -295,28 +295,28 @@ begin
                     else
                         begin
                             clrscr;
-                            gotoxy(35,5);
+                            gotoxy(5,5);
                             write('El conductor se encuentra deshabilitado, ');
                             textcolor(LightRed);
                             writeln('NOTIFICAR A JUDICIALES QUE EL CONDUCTOR SE ENCUENTRA DESHABILITADO');
                             textcolor(white);
-                            gotoxy(60,7);
+                            gotoxy(5,7);
                             writeln('Presione enter para continuar');
-                            gotoxy(60,8);
+                            gotoxy(5,8);
                             readkey;
                         end;
                 end
             else
                 begin
                     clrscr;
-                    gotoxy(40,5);
+                    gotoxy(5,5);
                     write('DNI no encontrado, ');
                     textcolor(LightRed);
                     writeln('NOTIFICAR A JUDICIALES QUE EL CONDUCTOR NO TIENE LICENCIA');
                     textcolor(white);
-                    gotoxy(60,7);
+                    gotoxy(5,7);
                     writeln('Presione enter para continuar');
-                    gotoxy(60,8);
+                    gotoxy(5,8);
                     readkey;
                 end;
         end
@@ -336,13 +336,13 @@ var
     x_infraccion:t_dato_infraccion;
     
 begin
-    x:=60;
+    x:=5;
     y:=6;
     clrscr;
     i:=0;
-    gotoxy(60,5);
+    gotoxy(5,5);
     writeln('Ingrese el DNI del conductor o presione "n" para volver');
-    gotoxy(60,6);
+    gotoxy(5,6);
     readln(dni);
     y:=6;
     confirmacion_dni(dni,x,y);
@@ -369,11 +369,11 @@ begin
             else
                 begin
                     clrscr;
-                    gotoxy(60,5);
+                    gotoxy(5,5);
                     writeln('DNI no encontrado');
-                    gotoxy(60,6);
+                    gotoxy(5,6);
                     writeln('Presione enter para continuar');
-                    gotoxy(60,7);
+                    gotoxy(5,7);
                     readkey;
                 end;
             vaciar_lista(l);

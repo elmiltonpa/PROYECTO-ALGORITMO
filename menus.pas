@@ -18,17 +18,17 @@ var
 begin
     repeat
         clrscr;
-        gotoxy(60, 5);
+        gotoxy(5, 5);
         writeln('1. Cargar infraccion');
-        gotoxy(60, 6);
+        gotoxy(5, 6);
         writeln('2. Consultar las infracciones de un conductor');
-        gotoxy(60, 7);
+        gotoxy(5, 7);
         writeln('0. Volver al menu principal');
-        gotoxy(60, 9);
+        gotoxy(5, 9);
         writeln('Seleccione opcion: '); 
-        gotoxy(79, 9);
+        gotoxy(24, 9);
         readln(opcion);
-        confirmacion_3_opciones(opcion,50,11);
+        confirmacion_3_opciones(opcion,5,11);
         case opcion of
             '1': alta_infraccion(archivo_infracciones,vector_infracciones,archivo_conductores,arbol_dni);
             '2': consulta_infraccion_conductor(archivo_infracciones,arbol_dni);
@@ -43,21 +43,21 @@ var
 begin
     repeat
         clrscr;
-        gotoxy(60, 5);
+        gotoxy(5, 5);
         writeln('1. Listado de conductores');
-        gotoxy(60, 6);
+        gotoxy(5, 6);
         writeln('2. Listado de infracciones en un periodo');
-        gotoxy(60, 7);
+        gotoxy(5, 7);
         writeln('3. Listado de infracciones de un conductor en un periodo');
-        gotoxy(60, 8);
+        gotoxy(5, 8);
         writeln('4. Listado de conductores con scoring igual a cero'); 
-        gotoxy(60, 9);
+        gotoxy(5, 9);
         writeln('0. Volver al menu principal');
-        gotoxy(60, 11);
+        gotoxy(5, 11);
         writeln('Seleccione opcion: ');
-        gotoxy(79, 11);
+        gotoxy(24, 11);
         readln(opcion);
-        confirmacion_5_opciones(opcion,40,13);
+        confirmacion_5_opciones(opcion,5,13);
         case opcion of
             '1': listado_apynom(archivo_conductores,arbol_apynom);
             '2': listado_infracciones_periodo(archivo_infracciones);
@@ -75,23 +75,23 @@ var
 begin
     repeat
         clrscr;
-        x:=50;
+        x:=5;
         y:=14;
-        gotoxy(60, 5);
+        gotoxy(5, 5);
         writeln('1. Cantidad de infracciones entre dos fechas');
-        gotoxy(60, 6);
+        gotoxy(5, 6);
         writeln('2. Porcentaje de conductores con reincidencias');
-        gotoxy(60, 7);
+        gotoxy(5, 7);
         writeln('3. Porcentaje de conductores con scoring 0');
-        gotoxy(60, 8);
+        gotoxy(5, 8);
         writeln('4. Total de conductores habilitados');
-        gotoxy(60, 9);
+        gotoxy(5, 9);
         writeln('5. Rango etario con mas infracciones');
-        gotoxy(60, 10);
+        gotoxy(5, 10);
         writeln('0. Volver al menu principal');
-        gotoxy(60, 12);
+        gotoxy(5, 12);
         writeln('Seleccione opcion: ');
-        gotoxy(79, 12);
+        gotoxy(24, 12);
         readln(opcion);
         confirmacion_6_opciones(opcion,x,y);
         case opcion of

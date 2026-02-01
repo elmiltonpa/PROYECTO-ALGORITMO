@@ -83,7 +83,7 @@ var
     x,y:integer;
     fecha_actual:TFecha;
 begin
-    x:=60;
+    x:=5;
     y:=5;
     inicializar_datos(x_conductor);
     fecha_hoy(fecha_actual);
@@ -152,31 +152,31 @@ var
 begin
     repeat
         clrscr;
-        x:=60;
+        x:=5;
         y:=5;
         aux_conductor:=x_conductor;
         mostrar_datos_conductor(x_conductor,x,y);
-        gotoxy(60,y+1);
+        gotoxy(5,y+1);
         Writeln ('¿Que dato desea modificar?');
-        gotoxy(60,y+2);
+        gotoxy(5,y+2);
         writeln ('1- Nombre y Apellido');
-        gotoxy(60,y+3);
+        gotoxy(5,y+3);
         writeln ('2- Fecha de Nacimiento');
-        gotoxy(60,y+4);
+        gotoxy(5,y+4);
         writeln ('3- Telefono');
-        gotoxy(60,y+5);
+        gotoxy(5,y+5);
         writeln ('4- Email');
-        gotoxy(60,y+6);
+        gotoxy(5,y+6);
         writeln ('0- Volver');
-        gotoxy(60,y+7);
+        gotoxy(5,y+7);
         writeln ('Selecione opción: ');
-        gotoxy(78,y+7);
+        gotoxy(23,y+7);
         readln(opcion);
         y:=y+8;
-        confirmacion_5_opciones(opcion,40,y);
+        confirmacion_5_opciones(opcion,5,y);
         clrscr;
         y:=5;
-        x:=60;
+        x:=5;
         case opcion of
             '1':begin
                     mostrar_datos_conductor(x_conductor,x,y);
@@ -352,11 +352,11 @@ procedure baja_conductor(var archivo_conductores:t_archivo_conductores;pos:cardi
         if (x_conductor.habilitado) then
             begin
                 clrscr;
-                x:=50;
+                x:=5;
                 y:=7;
-                gotoxy(50,5);
+                gotoxy(5,5);
                 writeln('Desea deshabilitar al conductor? s/n');
-                gotoxy(50,6);
+                gotoxy(5,6);
                 readln(opcion);
                 confirmacion_sn(opcion,x,y);
                 if (lowercase(opcion) = 's') then
@@ -410,24 +410,24 @@ var
 begin
     repeat
         clrscr;
-        x:=60;
+        x:=5;
         y:=5;
         mostrar_datos_conductor(x_conductor,x,y);
-        gotoxy(65,15);
+        gotoxy(5,15);
         textcolor(LightRed);
         writeln('¿Que desea hacer?');
         textcolor(white);
-        gotoxy(60,17);
+        gotoxy(5,17);
         writeln('1. Modificar este conductor');
-        gotoxy(60,18);
+        gotoxy(5,18);
         writeln('2. Dar de baja este conductor');
-        gotoxy(60,19);
+        gotoxy(5,19);
         writeln('0. Volver al menu principal');
-        gotoxy(60,21);
+        gotoxy(5,21);
         writeln('Seleccione opcion: ');
-        gotoxy(79,21);
+        gotoxy(24,21);
         readln(opcion);
-        confirmacion_5_opciones(opcion,45,22);
+        confirmacion_5_opciones(opcion,5,22);
         clrscr;
         case opcion of
             '1': modificar_conductor(archivo_conductores,pos2,arbol_apynom,arbol_dni,x_conductor);

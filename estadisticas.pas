@@ -37,7 +37,7 @@ begin
         end;
 
     clrscr;
-    gotoxy(40,5);
+    gotoxy(5,5);
     write('La cantidad de conductores habilitados es: ');
     textcolor(LightRed);
     write(cantidad);
@@ -48,9 +48,9 @@ begin
     textcolor(white);
     writeln(' conductores');
     close(archivo_conductores);
-    gotoxy(60,7);
+    gotoxy(5,7);
     writeln('Presione enter para continuar');
-    gotoxy(60,8);
+    gotoxy(5,8);
     readkey;
 end;
 
@@ -120,30 +120,30 @@ begin
     close(archivo_conductores);
 
     clrscr;
-    gotoxy(55,5);
+    gotoxy(5,5);
     writeln('Cantidad de infracciones por rango etario:');
 
-    gotoxy(55,7);
+    gotoxy(5,7);
     write('17-30 años: ');
     textcolor(LightRed);
     writeln(cant_17_30);
     textcolor(white);
 
-    gotoxy(55,8);
+    gotoxy(5,8);
     write('31-50 años: ');
     textcolor(LightRed);
     writeln(cant_31_50);
     textcolor(white);
 
-    gotoxy(55,9);
+    gotoxy(5,9);
     write('51 o más años: ');
     textcolor(LightRed);
     writeln(cant_51_o_mas);
     textcolor(white);
 
-    gotoxy(60,11);
+    gotoxy(5,11);
     writeln('Presione enter para continuar');
-    gotoxy(60,12);
+    gotoxy(5,12);
     readkey;
 end;
 
@@ -171,7 +171,7 @@ begin
 
     porcentaje := (cantidad * 100) / filesize(archivo_conductores);
     clrscr;
-    gotoxy(38,5);
+    gotoxy(5,5);
     write('El porcentaje de conductores con scoring 0 es: ');
     textcolor(LightRed);
     write(porcentaje:2:2,'%');
@@ -182,9 +182,9 @@ begin
     textcolor(white);
     writeln(' conductores');
     close(archivo_conductores);
-    gotoxy(60,7);
+    gotoxy(5,7);
     writeln('Presione enter para continuar');
-    gotoxy(60,8);
+    gotoxy(5,8);
     readkey;
 end;
 
@@ -213,7 +213,7 @@ begin
         end;
     porcentaje:= (cantidad * 100) / filesize(archivo_conductores);
     clrscr;
-    gotoxy(38,5);
+    gotoxy(5,5);
 
     write('El porcentaje de conductores con reincidencias es: ');
     textcolor(LightRed);
@@ -224,10 +224,10 @@ begin
     write(filesize(archivo_conductores));
     textcolor(white);
     writeln(' conductores');
-    gotoxy(60,7);
+    gotoxy(5,7);
     writeln('Presione enter para continuar');
     close(archivo_conductores);
-    gotoxy(60,8);
+    gotoxy(5,8);
     readkey;
 end;
 
@@ -268,14 +268,14 @@ begin
                 end;
             close(archivo_infracciones);
             clrscr;
-            gotoxy(50,5);
+            gotoxy(5,5);
             write('La cantidad de infracciones entre las fechas seleccionadas es: ');
             textcolor(LightRed);
             writeln(cantidad);
             textcolor(white);
-            gotoxy(50,7);
+            gotoxy(5,7);
             writeln('Presione enter para continuar');
-            gotoxy(50,8);
+            gotoxy(5,8);
             readkey;
         end;
 end;

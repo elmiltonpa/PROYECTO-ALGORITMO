@@ -73,21 +73,21 @@ begin
             if not aux then
                 begin
                     clrscr;
-                    gotoxy(50, 5);
+                    gotoxy(5, 5);
                     writeln('No se encontraron infracciones en el periodo seleccionado.');
-                    gotoxy(60, 7);
+                    gotoxy(5, 7);
                     writeln('Presione enter para continuar');
-                    gotoxy(50, 8);
+                    gotoxy(5, 8);
                     readkey;
                 end;
             if opcion <>'n' then
                 begin
                     clrscr;
-                    x:=50;
+                    x:=5;
                     y:=6;
-                    gotoxy(50,5);
+                    gotoxy(5,5);
                     writeln('Desea seguir consultando infracciones en un periodo determinado? s/n');
-                    gotoxy(50,6);
+                    gotoxy(5,6);
                     readln(opcion);
                     confirmacion_sn(opcion,x,y);
                 end;
@@ -114,9 +114,9 @@ begin
     while (lowercase(opcion) = 's') do
         begin
             clrscr;
-            gotoxy(50,5);
+            gotoxy(5,5);
             writeln('Ingrese el DNI del conductor');
-            gotoxy(50,6);
+            gotoxy(5,6);
             readln(dni);
             confirmacion_dni(dni,x,y);
             if lowercase(dni) <> 'n' then
@@ -161,21 +161,21 @@ begin
                             if not aux then
                                 begin
                                     clrscr;
-                                    gotoxy(50,5);
+                                    gotoxy(5,5);
                                     writeln('No se encontraron infracciones en el periodo seleccionado.');
-                                    gotoxy(60, 7);
+                                    gotoxy(5, 7);
                                     writeln('Presione enter para continuar');
-                                    gotoxy(60, 8);
+                                    gotoxy(5, 8);
                                     readkey;
                                 end;
                             if opcion <>'n' then
                                 begin
                                     clrscr;
-                                    x:=50;
+                                    x:=5;
                                     y:=6;
-                                    gotoxy(40,5);
+                                    gotoxy(5,5);
                                     writeln('Desea seguir consultando infracciones de un conductor en un periodo determinado? s/n');
-                                    gotoxy(40,6);
+                                    gotoxy(5,6);
                                     readln(opcion);
                                     confirmacion_sn(opcion,x,y);
                                 end;    
@@ -183,7 +183,7 @@ begin
                     else
                         begin
                             clrscr;
-                            gotoxy(50, 5);
+                            gotoxy(5, 5);
                             writeln('DNI no encontrado');
                         end;
 
@@ -230,16 +230,16 @@ begin
             abrir_archivo_conductores(archivo_conductores);
             estruc_listado_apynom(archivo_conductores,l);
             close(archivo_conductores);
-            gotoxy(60, y );
+            gotoxy(5, y );
             writeln('Presione enter para continuar');
             readkey;
         end
     else   
         begin
             clrscr;
-            gotoxy(60, 5);
+            gotoxy(5, 5);
             writeln('No hay conductores cargados');
-            gotoxy(60, 7);
+            gotoxy(5, 7);
             writeln('Presione enter para continuar');
             readkey;
         end;

@@ -50,18 +50,18 @@ var
     x,y:integer;
     begin
         clrscr;
-        x:= 50;
+        x:= 5;
         y:= 6;
         opcion:= 's';
-        gotoxy(50,5);
+        gotoxy(5,5);
         writeln('Ingrese la fecha de inicio del periodo a consultar: ');
         ingresar_fecha(fecha_inicio,x,y);
         if lowercase(fecha_inicio.anio) <> 'n' then
             begin
                 clrscr;
                 y:= 6;
-                x:= 50;
-                gotoxy(50,5);
+                x:= 5;
+                gotoxy(5,5);
                 writeln('Ingrese la fecha de fin del periodo a consultar: ');
                 ingresar_fecha(fecha_fin,x,y);
                 if (lowercase(fecha_fin.anio) <> 'n') then
@@ -69,11 +69,11 @@ var
                         if comparar_fechas(fecha_inicio,fecha_fin) then
                             begin
                                 clrscr;
-                                gotoxy(50,5);
+                                gotoxy(5,5);
                                 writeln('Fecha de inicio mayor a fecha de fin');
-                                gotoxy(50,7);
+                                gotoxy(5,7);
                                 writeln('Desea ingresar nuevamente las fechas? s/n');
-                                gotoxy(50,8);
+                                gotoxy(5,8);
                                 readln(opcion);
                                 y:= 7;
                                 confirmacion_sn(opcion,x,y);
