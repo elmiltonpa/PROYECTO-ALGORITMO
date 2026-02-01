@@ -271,12 +271,12 @@ begin
         if opcion <> '0' then
             begin
                 clrscr;
-                x:=60;
+                x:=5;
                 y:=5;
                 mostrar_datos_conductor(aux_conductor,x,y);
-                gotoxy(60,y+2);
+                gotoxy(5,y+2);
                 writeln('Confirma la modificacion? s/n');
-                gotoxy(60,y+3);
+                gotoxy(5,y+3);
                 readln(opcion);
                 y:=y+4;
                 confirmacion_sn(opcion,x,y);
@@ -284,26 +284,26 @@ begin
                 if (lowercase(opcion) = 's') then
                     begin
                         x_conductor:=aux_conductor;
-                        gotoxy(60,5);
+                        gotoxy(5,5);
                         writeln('Modificacion realizada con exito');
                     end
                 else
                     begin
-                        gotoxy(60,5);
+                        gotoxy(5,5);
                         writeln('Modificacion cancelada');
                     end;
-                gotoxy(60,7);
+                gotoxy(5,7);
                 writeln('Presione enter para continuar');
-                gotoxy(60,8);
+                gotoxy(5,8);
                 readkey;
             end;
         clrscr;
-        x:=60;
+        x:=5;
         y:=5;
         mostrar_datos_conductor(x_conductor,x,y);
-        gotoxy(60,y+1);    
+        gotoxy(5,y+1);    
         writeln('Desea modificar otro dato? s/n');
-        gotoxy(60,y+2);
+        gotoxy(5,y+2);
         readln(opcion);
         y:=y+3;
         confirmacion_sn(opcion,x,y);
@@ -318,12 +318,12 @@ var
     x,y:integer;
 
 begin
-    x:=60;
+    x:=5;
     y:=5;
     mostrar_datos_conductor(x_conductor,x,y);
-    gotoxy(60,y+1);
+    gotoxy(5,y+1);
     writeln('¿Desea modificar algun dato? s/n');
-    gotoxy(60,y+2);
+    gotoxy(5,y+2);
     readln(opcion);
     y:=y+3;
     confirmacion_sn(opcion,x,y);
@@ -370,32 +370,32 @@ procedure baja_conductor(var archivo_conductores:t_archivo_conductores;pos:cardi
                         seek(archivo_conductores,pos);
                         write(archivo_conductores,x_conductor);
                         clrscr;
-                        gotoxy(50,5);
+                        gotoxy(5,5);
                         writeln('Conductor deshabilitado con exito');
-                        gotoxy(50,7);
+                        gotoxy(5,7);
                         write('La nueva fecha de habilitacion es: ');
                         textcolor(LightRed);
                         writeln(x_conductor.fecha_habilitacion.dia,'/',x_conductor.fecha_habilitacion.mes,'/',x_conductor.fecha_habilitacion.anio);
                         textcolor(white);
-                        gotoxy(50,9);
+                        gotoxy(5,9);
                         writeln('Presione enter para continuar');
-                        gotoxy(50,10);
+                        gotoxy(5,10);
                         readkey;
                     end;
             end
         else
             begin
                 clrscr;
-                gotoxy(50,5);
+                gotoxy(5,5);
                 writeln('El conductor ya esta deshabilitado');
-                gotoxy(50,7);
+                gotoxy(5,7);
                 write('La fecha de habilitacion de este condcutor es: ');
                 textcolor(LightRed);
                 writeln(x_conductor.fecha_habilitacion.dia,'/',x_conductor.fecha_habilitacion.mes,'/',x_conductor.fecha_habilitacion.anio);
                 textcolor(white);
-                gotoxy(50,9);
+                gotoxy(5,9);
                 writeln('Presione enter para continuar');
-                gotoxy(50,10);
+                gotoxy(5,10);
                 readkey;
             end;
         close(archivo_conductores);
@@ -458,67 +458,64 @@ begin
     while (lowercase(opcion) = 's') do
                 begin
                     clrscr;
-                    x:=60;
+                    x:=5;
                     y:=5;
                     gotoxy(x,y);
                     writeln('Ingrese el DNI del conductor o presione "n" para volver');
                     gotoxy(x,y+1);
                     readln(dni);
                     y:=y+1;
-                    x:=x-10;
                     confirmacion_dni(dni,x,y);
-                    x:=x+10;
                     if lowercase(dni) <> 'n' then
                         begin
                             pos:=preorden(arbol_dni,dni);
-                            if (pos = nil) then
-                                begin
-                                    clrscr;
-                                    gotoxy(50,5);
-                                    writeln('El conductor no esta dado de alta, desea cargarlo? s/n');
-                                    gotoxy(50,6);
-                                    readln(opcion);
-                                    confirmacion_sn(opcion,x,y);
-                                    if (lowercase(opcion) = 's') then
-                                        begin
-                                            ingresar_datos_conductor(x_conductor);
-                                            if (lowercase(x_conductor.fecha_nacimiento.anio) <> 'n') then
-                                                    begin
-                                                        clrscr;
-                                                        abrir_archivo_conductores(archivo_conductores);
-                                                        x_conductor.dni:=dni;
-                                                        x_arbol.clave:=x_conductor.dni;
-                                                        x_arbol.posicion:=filesize(archivo_conductores);
-                                                        seek(archivo_conductores,filesize(archivo_conductores));
-                                                        write(archivo_conductores,x_conductor);
-                                                        agregar(arbol_dni,x_arbol);
-                                                        x_arbol.clave := lowercase(x_conductor.nombre) + lowercase(x_conductor.apellido);
-                                                        agregar(arbol_apynom,x_arbol);
-                                                        gotoxy(60,5);
-                                                        writeln('Conductor dado de alta con exito');
-                                                        gotoxy(60,7);
-                                                        writeln('Presione enter para continuar');
-                                                        gotoxy(60,8);
-                                                        readkey;
-                                                        pos2:=filesize(archivo_conductores)-1;
-                                                        close(archivo_conductores);
-                                                        menu_cargar_conductor(x_conductor,archivo_conductores,arbol_dni,arbol_apynom,pos,pos2,opcion); 
-                                                    end
-                                                else
-                                                    opcion:='n';
-
-                                        end
-                                    else
-                                        begin
-                                            clrscr;
-                                            gotoxy(60,5);
-                                            writeln('Desea ingresar otro DNI? s/n');
-                                            gotoxy(60,6);
-                                            readln(opcion);
-                                            y:=6;
-                                            confirmacion_sn(opcion,x,y);
-                                        end;
-                                end
+                                                        if (pos = nil) then
+                                                            begin
+                                                                clrscr;
+                                                                gotoxy(5,5);
+                                                                writeln('El conductor no esta dado de alta, desea cargarlo? s/n');
+                                                                gotoxy(5,6);
+                                                                readln(opcion);
+                                                                confirmacion_sn(opcion,x,y);
+                                                                if (lowercase(opcion) = 's') then
+                                                                    begin
+                                                                        ingresar_datos_conductor(x_conductor);
+                                                                        if (lowercase(x_conductor.fecha_nacimiento.anio) <> 'n') then
+                                                                                begin
+                                                                                    clrscr;
+                                                                                    abrir_archivo_conductores(archivo_conductores);
+                                                                                    x_conductor.dni:=dni;
+                                                                                    x_arbol.clave:=x_conductor.dni;
+                                                                                    x_arbol.posicion:=filesize(archivo_conductores);
+                                                                                    seek(archivo_conductores,filesize(archivo_conductores));
+                                                                                    write(archivo_conductores,x_conductor);
+                                                                                    agregar(arbol_dni,x_arbol);
+                                                                                    x_arbol.clave := lowercase(x_conductor.nombre) + lowercase(x_conductor.apellido);
+                                                                                    agregar(arbol_apynom,x_arbol);
+                                                                                    gotoxy(5,5);
+                                                                                    writeln('Conductor dado de alta con exito');
+                                                                                    gotoxy(5,7);
+                                                                                    writeln('Presione enter para continuar');
+                                                                                    gotoxy(5,8);
+                                                                                    readkey;
+                                                                                    pos2:=filesize(archivo_conductores)-1;
+                                                                                    close(archivo_conductores);
+                                                                                    menu_cargar_conductor(x_conductor,archivo_conductores,arbol_dni,arbol_apynom,pos,pos2,opcion); 
+                                                                                end
+                                                                            else
+                                                                                opcion:='n';
+                            
+                                                                    end
+                                                                else
+                                                                    begin
+                                                                        clrscr;
+                                                                        gotoxy(5,5);
+                                                                        writeln('Desea ingresar otro DNI? s/n');
+                                                                        gotoxy(5,6);
+                                                                        readln(opcion);
+                                                                        y:=6;
+                                                                        confirmacion_sn(opcion,x,y);
+                                                                    end;                                end
                             else
                                 begin
                                     abrir_archivo_conductores(archivo_conductores);

@@ -69,7 +69,7 @@ var
 
 begin
     clrscr;
-    x :=1; 
+    x :=5; 
     y := 7;
     gotoxy(x, 5);
     textcolor(LightRed);
@@ -90,13 +90,13 @@ begin
         writeln('-------------------------------------------------------------------------------'); 
         y := y + 1;
     end;
-    gotoxy(1, y + 2);
+    gotoxy(5, y + 2);
     textcolor(LightRed);
     writeln('INGRESE "0" PARA SALIR');
     textcolor(white);
-    gotoxy(1, y + 4);
+    gotoxy(5, y + 4);
     writeln('Seleccione opcion: ');
-    gotoxy(20, y + 4);
+    gotoxy(24, y + 4);
     readln(opcion);
     y:=y+5;
     x:=5;
